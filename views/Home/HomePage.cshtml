@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <script src="../wwwroot/js/jquery.js"></script>
-    <script src="../wwwroot/js/bootstrap.bundle.js"></script>
-    <link rel="stylesheet" type="text/css" href="../wwwroot/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../wwwroot/css/style.css">
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/css/style.css">
 
     <title>TFESR</title>
 </head>
@@ -16,7 +16,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-light flex-column flex-md-row">
-            <a class="navbar-brand" href="#"><img src="../wwwroot/img/logo.png" class="nav__logo" /></a>
+            <a class="navbar-brand" href="#"><img src="~/img/logo.png" class="nav__logo" /></a>
             <ul class="navbar-nav" style="font-family: unit-slab;">
                 <li class="nav-item">
                     <a class="nav-link" style="color: #6d6875" href="#">Home</a>
@@ -31,11 +31,13 @@
                     <a class="nav-link" style="color: #6d6875;" href="#">Projects</a>
                 </li>
             </ul>
-            <button type="button" class="btn btn-primary ml-auto mr-1"
-                style="background-color: #0000; border: none; font-family: unit-slab;">Sign In</button>
-            <button type="button" class="btn btn-secondary"
-                style="background-color: initial; border: none; font-family: unit-slab;">Log
-                In</button>
+            <a href="@Url.Action("SignIn", "Home")" class="btn text-light ml-auto mr-1"
+                    style="background-color: #0000; border: none; font-family: unit-slab;">
+                Sign In
+            </a>
+            <a href="@Url.Action("SignUp", "Home")" class="btn text-light btn-secondary"
+                style="background-color: initial; border: none; font-family: unit-slab;">Sign
+                Up</a>
         </nav>
     </header>
     <section class="container-fluid" style="display: contents">

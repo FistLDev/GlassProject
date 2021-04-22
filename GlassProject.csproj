@@ -5,7 +5,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="views\shared" />
+      <Folder Include="models" />
+      <Folder Include="repositories" />
+      <Folder Include="services" />
       <Folder Include="wwwroot\fonts" />
     </ItemGroup>
 
