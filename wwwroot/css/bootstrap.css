@@ -60,7 +60,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #FFEB3B;
+  background-color: #f8edeb;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -4321,7 +4321,7 @@ input[type="button"].btn-block {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
-  background-color: #FBC02D;
+  background-color: #ffb4a2;
 }
 
 .navbar .container,

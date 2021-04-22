@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'FF Unit Slab Pro';
+    src: local('FF Unit Slab Pro Thin Italic'), local('FF-Unit-Slab-Pro-Thin-Italic'),
+        url('UnitSlabPro-ThinIta.woff2') format('woff2'),
+        url('UnitSlabPro-ThinIta.woff') format('woff'),
+        url('UnitSlabPro-ThinIta.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+  }

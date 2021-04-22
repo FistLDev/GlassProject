@@ -1,16 +1,31 @@
+@font-face {
+    font-family: unit-slab;
+    src: "../fonts/unit-slab";
+    color: #6D6875;
+}
+/*nav bar*/
+.nav__logo{
+    height: 50px;
+    width: 110px;
+}
+
 /*Reviews*/
 
 .reviews{
-    background-color: #FFF9C4;
     margin: 15px;
     border-radius: 1%;
+    font-family: unit-slab;
   }
 
   /*account-nav-bar*/
 
   .account-nav-bar{
-      background-color: #FFF9C4;
+      background-color: #FFCDB2;
       color: black;
+      width: 280px; 
+      height:100vh;
+      font-family: unit-slab;
+      
   }
 
   
