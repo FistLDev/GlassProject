@@ -1,7 +1,7 @@
-﻿@page
-
+﻿@model GlassProject.models.view_models.SignInViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
-    Layout = "_RegistrationFormLayout";
+    Layout = "_SignUpInFormLayout";
 }
 
 <div class="main">
@@ -12,29 +12,29 @@
                     <figure>
                         <img src="~/img/signin-image.jpg" alt="sing up image">
                     </figure>
-                    <a href="#" class="signup-image-link">Create an account</a>
+                    <a href="@Url.Action("SignUp", "Account")" class="signup-image-link">Create an account</a>
                 </div>
 
                 <div class="signin-form">
+                    <div asp-validation-summary="ModelOnly" id="myCustomSummary"></div>
                     <h2 class="form-title">Sign in</h2>
-                    <form method="POST" class="register-form" id="login-form">
+                    <form method="POST" class="register-form" asp-controller="Account" asp-action="SignIn">
                         <div class="form-group">
-                            <label for="your_name">
+                            <label>
                                 <i class="zmdi zmdi-account material-icons-name"></i>
                             </label>
-                            <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                            <input asp-for="Name" placeholder="Name"/>
                         </div>
                         <div class="form-group">
-                            <label for="your_pass">
+                            <label >
                                 <i class="zmdi zmdi-lock"></i>
                             </label>
-                            <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                            <input asp-for="Password" placeholder="Password"/>
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="remember-me" id="remember-me" class="agree-term"/>
                             <label for="remember-me" class="label-agree-term">
                                 <span>
-                                    <span></span>
+                                    <input type="checkbox" asp-for="RememberMe" class="agree-term"/>
                                 </span>Remember
                                 me
                             </label>
@@ -43,7 +43,7 @@
                             <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                         </div>
                     </form>
-                    <div class="social-login">
+                    @*<div class="social-login">
                         <span class="social-label">Or login with</span>
                         <ul class="socials">
                             <li>
@@ -62,7 +62,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>

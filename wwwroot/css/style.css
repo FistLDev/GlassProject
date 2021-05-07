@@ -1,8 +1,4 @@
-@font-face {
-    font-family: unit-slab;
-    src: "../fonts/unit-slab";
-    color: #6D6875;
-}
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap');
 /*nav bar*/
 .nav__logo{
     height: 50px;
@@ -14,7 +10,7 @@
 .reviews{
     margin: 15px;
     border-radius: 1%;
-    font-family: unit-slab;
+    font-family: 'Mukta', sans-serif;
   }
 
   /*account-nav-bar*/
@@ -24,8 +20,7 @@
       color: black;
       width: 280px; 
       height:100vh;
-      font-family: unit-slab;
-      
+      font-family: 'Mukta', sans-serif;
   }
 
   

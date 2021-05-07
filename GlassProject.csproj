@@ -5,8 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="models" />
-      <Folder Include="repositories" />
+      <Folder Include="models\data_transfer_object_models" />
+      <Folder Include="Pages" />
       <Folder Include="services" />
       <Folder Include="wwwroot\fonts" />
     </ItemGroup>
@@ -136,6 +136,11 @@
       <Content Include="wwwroot\node_modules\jquery\src\var\support.js" />
       <Content Include="wwwroot\node_modules\jquery\src\var\toString.js" />
       <Content Include="wwwroot\node_modules\jquery\src\wrap.js" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0-preview.3.21201.13" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0-preview.3.21201.2" />
     </ItemGroup>
 
 </Project>

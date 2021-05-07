@@ -142,6 +142,18 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   -ms-appearance: none !important;
   margin: 0; }
 
+ul{
+  padding-left: 0;
+}
+
+#myCustomSummary ul li {
+  list-style-type: none;
+  color: red;
+  font-family: 'Mukta', sans-serif;
+  padding-bottom: 5px;
+  padding-left: 0px;!important;
+}
+
 input:focus, select:focus, textarea:focus {
   outline: none;
   box-shadow: none !important;
@@ -274,7 +286,7 @@ figure {
 
 .form-submit {
   display: inline-block;
-  background: #6dabe4;
+  background: #FCA311;
   color: #fff;
   border-bottom: none;
   width: auto;
@@ -287,7 +299,7 @@ figure {
   margin-top: 25px;
   cursor: pointer; }
   .form-submit:hover {
-    background: #4292dc; }
+    background: #FCA311; }
 
 #signin {
   margin-top: 16px; }
@@ -348,8 +360,7 @@ input[type=checkbox]:not(old) {
   width: 2em;
   margin: 0;
   padding: 0;
-  font-size: 1em;
-  display: none; }
+  font-size: 1em; }
 
 input[type=checkbox]:not(old) + label {
   display: inline-block;
@@ -574,6 +585,10 @@ label.valid {
     margin-right: 0px;
     margin-left: 0px;
     padding: 0 30px; }
+  
+  .validation-errors {
+    color: red;
+  }
 
   .form-title {
     text-align: center; } }

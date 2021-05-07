@@ -9,39 +9,52 @@
     <script src="~/js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap" rel="stylesheet">
 
     <title>TFESR</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light flex-column flex-md-row">
+        <nav class="navbar navbar-expand-sm flex-column flex-md-row">
             <a class="navbar-brand" href="#"><img src="~/img/logo.png" class="nav__logo" /></a>
-            <ul class="navbar-nav" style="font-family: unit-slab;">
+            @*<ul class="navbar-nav" style="font-family: Mukta;">
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #6d6875" href="#">Home</a>
+                    <a class="nav-link" style="color: #FFFFFF" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #6d6875;" href="#">About</a>
+                    <a class="nav-link" style="color: #FFFFFF;" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #6d6875;" href="#">Reviews</a>
+                    <a class="nav-link" style="color: #FFFFFF;" href="#">Reviews</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #6d6875;" href="#">Projects</a>
+                    <a class="nav-link" style="color: #FFFFFF;" href="#">Projects</a>
                 </li>
-            </ul>
-            <a href="@Url.Action("SignIn", "Home")" class="btn text-light ml-auto mr-1"
-                    style="background-color: #0000; border: none; font-family: unit-slab;">
-                Sign In
-            </a>
-            <a href="@Url.Action("SignUp", "Home")" class="btn text-light btn-secondary"
-                style="background-color: initial; border: none; font-family: unit-slab;">Sign
-                Up</a>
+            </ul>*@
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a href="@Url.Action("SignIn", "Account")" class="btn text-light ml-auto mr-1"
+                   style="background-color: #0000; border: none; font-family: Mukta;">
+                    Sign In
+                </a>
+                <a href="@Url.Action("SignUp", "Account")" class="btn text-light btn-secondary"
+                   style="background-color: initial; border: none; font-family:Mukta;">Sign
+                    Up</a>
+            }
+            else
+            {
+                <img src="~/img/profile.png" style="width: 40px; height: 40px;" class="ml-auto mr-1" />
+                <form method="post" asp-controller="Account" asp-action="LogOut">
+                    <input type="submit" class="btn text-light btn-secondary" style="background-color: initial; border: none;" value="LogOut" />
+                </form>
+            }
+            
         </nav>
     </header>
     <section class="container-fluid" style="display: contents">
-        <div class="jumbotron bg-light" style="font-family: unit-slab; margin: 0;">
+        <div class="jumbotron bg-light" style="font-family: Mukta; margin: 0;">
             <h1 class="display-4">TFESR - project wich creates projects</h1>
             <p class="lead" style="color: #6D6875;">Our team produces IT products according to your requirements</p>
             <hr class="my-4">
@@ -49,8 +62,8 @@
                 high-quality desktop
                 server and web applications</p>
             <p class="lead">
-                <a class="btn btn-primary btn-lg" style="background-color: #E5989B; border: none;" href="#"
-                    role="button">Create your first project</a>
+                <a class="btn btn-primary btn-lg" style="background-color: #FCA311; border: none;" href="#"
+                    role="button">Create project</a>
             </p>
         </div>
         <div class="reviews bg-light container-fluid" style="margin: 0;">
