@@ -6,7 +6,15 @@ namespace GlassProject.controllers
     {
         public IActionResult PersonalAccount()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+
+            else
+            {
+                return RedirectToAction("SignIn", "Account");
+            }
         }
     }
 }
