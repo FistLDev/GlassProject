@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <Folder Include="models\data_transfer_object_models" />
+      <Folder Include="Pages" />
       <Folder Include="services" />
       <Folder Include="wwwroot\fonts" />
     </ItemGroup>

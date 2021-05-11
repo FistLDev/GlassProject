@@ -26,7 +26,35 @@
         </button>
     </nav>
 </header>
-@RenderBody()
+<div class="container-fluid" style="font-family: 'Mukta', sans-serif">
+    <div class="row">
+        <div class="d-flex flex-column p-3 text-light account-nav-bar col-md-3 col-lg-2 d-md-block">
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a class="nav-link" id="create-project" role="button" style="color: #000000;">
+                        <i class="fi-rr-magic-wand"></i>
+                        Create project
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link" id="my-projects" role="button" style="color: #000000;">
+                        <i class="fi-rr-browser"></i>
+                        My projects
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link" id="support" role="button" style="color: #000000;">
+                        <i class="fi-rr-life-ring"></i>
+                        Support
+                    </a>
+                </li>
+            </ul>
+            <hr>
+        </div>
+        @RenderBody()
+    </div>
+</div>
 </body>
 
 </html>

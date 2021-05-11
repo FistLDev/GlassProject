@@ -18,7 +18,7 @@
                 <div class="signin-form">
                     <div asp-validation-summary="ModelOnly" id="myCustomSummary"></div>
                     <h2 class="form-title">Sign in</h2>
-                    <form method="POST" class="register-form" asp-controller="Account" asp-action="SignIn">
+                    <form method="POST" class="register-form" asp-controller="Account" asp-action="SignIn" asp-route-returnUrl="@Model.ReturnUrl">
                         <div class="form-group">
                             <label>
                                 <i class="zmdi zmdi-account material-icons-name"></i>

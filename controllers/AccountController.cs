@@ -24,9 +24,9 @@ namespace GlassProject.controllers
         }
         
         [HttpGet]
-        public IActionResult SignIn()
+        public IActionResult SignIn(string returnUrl = null)
         {
-            return View();
+            return View(new SignInViewModel { ReturnUrl = returnUrl });
         }
 
         [HttpPost]
@@ -65,6 +65,11 @@ namespace GlassProject.controllers
 
                 if (result.Succeeded)
                 {
+                    if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+                    {
+                        return Redirect(model.ReturnUrl);
+                    }
+                    
                     return RedirectToAction("HomePage", "Home");
                 }
 

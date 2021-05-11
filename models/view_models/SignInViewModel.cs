@@ -15,5 +15,7 @@ namespace GlassProject.models.view_models
         
         [Display(Name = "IsRemember")]
         public bool RememberMe { get; set;}
+        
+        public string ReturnUrl { get; set; }
     }
 }
