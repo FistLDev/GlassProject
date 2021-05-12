@@ -2,7 +2,7 @@
 
 namespace GlassProject.models.domain_models
 {
-    public class UserDomainModel : IdentityUser
+    public class User : IdentityUser
     {
         
     }

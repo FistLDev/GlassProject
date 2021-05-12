@@ -10,9 +10,9 @@ namespace GlassProject.models.domain_models
 
         public string UserId { get; set; }
         
-        public UserDomainModel User { get; set; }
+        public User User { get; set; }
         
-        public ProductType ProductType { get; set; }
+        public string ProductType { get; set; }
         
     }
 }

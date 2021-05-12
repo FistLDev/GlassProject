@@ -29,10 +29,13 @@ namespace GlassProject
             services.AddDbContext<IdentityContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("IdentityConnectionString")));
 
-            services.AddIdentity<UserDomainModel, IdentityRole>(options => 
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("ApplicationConnectionString")));
+
+            services.AddIdentity<User, IdentityRole>(options => 
                     options.Password.RequireNonAlphanumeric = false)
                 .AddEntityFrameworkStores<IdentityContext>();
-            
+
             services.ConfigureApplicationCookie(options =>
             {
                 options.LoginPath = "/sign-in";

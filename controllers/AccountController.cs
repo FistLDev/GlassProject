@@ -8,10 +8,10 @@ namespace GlassProject.controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<UserDomainModel> _userManager;
-        private readonly SignInManager<UserDomainModel> _signInManager;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
 
-        public AccountController(UserManager<UserDomainModel> userManager, SignInManager<UserDomainModel> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
@@ -37,7 +37,7 @@ namespace GlassProject.controllers
         {
             if (ModelState.IsValid)
             {
-                UserDomainModel user = new UserDomainModel() {Email = model.Email, UserName = model.Name};
+                User user = new User() {Email = model.Email, UserName = model.Name};
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)

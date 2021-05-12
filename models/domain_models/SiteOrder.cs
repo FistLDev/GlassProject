@@ -10,8 +10,8 @@ namespace GlassProject.models.domain_models
         public string Structure { get; set; }
         
         public string Purpose { get; set; }
-        
-        public List<SiteTechnology> Technologies { get; set; }
+
+        public List<Technology> Technologies { get; set; } = new List<Technology>();
         
         public string Requirements { get; set; }
         

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GlassProject.repositories.contexts
 {
-    public class IdentityContext : IdentityDbContext<UserDomainModel>
+    public class IdentityContext : IdentityDbContext<User>
     {
         public IdentityContext(DbContextOptions<IdentityContext> options)
             : base(options)
