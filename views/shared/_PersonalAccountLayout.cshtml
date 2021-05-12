@@ -26,6 +26,23 @@
         </button>
     </nav>
 </header>
+
+<!-- Модальное окно -->
+<div class="modal fade" id="ts-type-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-family: 'Mukta', sans-serif">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #E5E5E5">
+                <h5 class="modal-title">Which type of technical specification do you prefer?</h5>
+                <button type="button" style="border: none; background-color: #E5E5E5" id="hide-modal">x</button>
+            </div>
+            <div class="modal-footer" style="justify-content: space-between">
+                <button type="button" class="btn" style="background-color: #FCA311">Self-written</button>
+                <button type="button" class="btn" style="background-color: #FCA311">TS Redactor</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid" style="font-family: 'Mukta', sans-serif">
     <div class="row">
         <div class="d-flex flex-column p-3 text-light account-nav-bar col-md-3 col-lg-2 d-md-block">
@@ -57,4 +74,21 @@
 </div>
 </body>
 
+<script>
+$(function (){
+    $("#create-project").click(function (){
+        $("#ts-type-modal").modal('show');
+    });
+});
+
+$(document).ready(function(){
+    $("#hide-modal").click(function(){
+        $("#ts-type-modal").modal('hide');
+    });
+});
+
+$(document).ready(function() {
+  $("#@ViewBag.CurrentPage").css('background-color', '#FCA311')
+})
+</script>
 </html>

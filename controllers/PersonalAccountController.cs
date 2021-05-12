@@ -1,19 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GlassProject.controllers
 {
     public class PersonalAccountController : Controller
     {
-        [Route("PersonalAccount")]
+
+        [Authorize]
+        [Route("account")]
         public IActionResult PersonalAccount()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                ViewBag.CurrentPage = "my-projects";
-                return View();
-            }
-            
-            return RedirectToAction("SignIn", "Account", new {returnUrl = this.Url.Action("PersonalAccount", "PersonalAccount")});
+            ViewBag.CurrentPage = "my-projects";
+            return View();
         }
+
+        [Authorize]
+        [Route("create-project")]
+        public IActionResult CreateProject()
+        {
+            ViewBag.CurrentPage = "create-project";
+            return View();
+        }
+        
     }
 }

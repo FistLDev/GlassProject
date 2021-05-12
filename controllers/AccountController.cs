@@ -18,18 +18,21 @@ namespace GlassProject.controllers
         }
         
         [HttpGet]
+        [Route("/sign-up")]
         public IActionResult SignUp()
         {
             return View();
         }
         
         [HttpGet]
+        [Route("/sign-in")]
         public IActionResult SignIn(string returnUrl = null)
         {
             return View(new SignInViewModel { ReturnUrl = returnUrl });
         }
 
         [HttpPost]
+        [Route("/sign-up")]
         public async Task<IActionResult> SignUp(SignUpViewModel model)
         {
             if (ModelState.IsValid)
@@ -57,6 +60,7 @@ namespace GlassProject.controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("/sign-in")]
         public async Task<IActionResult> SignIn(SignInViewModel model)
         {
             if (ModelState.IsValid)
@@ -84,6 +88,7 @@ namespace GlassProject.controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("/log-out")]
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
