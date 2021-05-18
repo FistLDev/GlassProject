@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using GlassProject.models.domain_models;
 using GlassProject.models.domain_models.Enums;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,18 @@ namespace GlassProject.repositories.contexts
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.LogTo(logStream.WriteLine);
+        }
+        
+        public override void Dispose()
+        {
+            base.Dispose();
+            logStream.Dispose();
+        }
+ 
+        public override async ValueTask DisposeAsync()
+        {
+            await base.DisposeAsync();
+            await logStream.DisposeAsync();
         }
     }
 }

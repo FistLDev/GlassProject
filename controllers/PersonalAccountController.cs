@@ -22,15 +22,6 @@ namespace GlassProject.controllers
         public IActionResult PersonalAccount()
         {
             ViewBag.CurrentPage = "my-projects";
-
-            _context.Database.EnsureDeleted();
-            _context.Database.EnsureCreated();
-            _context.Technologies.Add(new Technology()
-            {
-                TechnologyName = "sadf"
-            });
-            _context.SaveChanges();
-
             return View();
         }
 
