@@ -26,8 +26,16 @@ namespace GlassProject.controllers
         }
 
         [Authorize]
-        [Route("create-project")]
-        public IActionResult CreateProject()
+        [Route("choose-project-type")]
+        public IActionResult ChooseProjectType()
+        {
+            ViewBag.CurrentPage = "create-project";
+            return View();
+        }
+        
+        [Authorize]
+        [Route("create-site-project")]
+        public IActionResult CreateSiteProject()
         {
             ViewBag.CurrentPage = "create-project";
             return View();
