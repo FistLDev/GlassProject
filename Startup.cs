@@ -35,6 +35,8 @@ namespace GlassProject
             services.AddIdentity<User, IdentityRole>(options => 
                     options.Password.RequireNonAlphanumeric = false)
                 .AddEntityFrameworkStores<IdentityContext>();
+            
+            services.AddHttpContextAccessor();
 
             services.ConfigureApplicationCookie(options =>
             {

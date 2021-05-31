@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using GlassProject.models.domain_models.Enums;
+using System.Diagnostics.CodeAnalysis;
 
 namespace GlassProject.models.domain_models
 {
@@ -16,5 +16,16 @@ namespace GlassProject.models.domain_models
         
         public string ProductType { get; set; }
         
+        [AllowNull]
+        public string Structure { get; set; }
+        
+        public string Purpose { get; set; }
+
+        [AllowNull]
+        public string Technologies { get; set; }
+        
+        public string Requirements { get; set; }
+        
+        public string Description { get; set; }
     }
 }

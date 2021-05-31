@@ -17,7 +17,7 @@
 <body>
 <header>
     <nav class="navbar navbar-expand-sm navbar-light flex-column flex-md-row" style="padding-top: 0; padding-bottom: 0">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="@Url.Action("HomePage", "Home")">
             <img src="~/img/logo.png" class="nav__logo"/>
         </a>
         <img src="~/img/profile.png" style="width: 40px; height: 40px;" class="ml-auto mr-1"/>
@@ -27,17 +27,17 @@
     </nav>
 </header>
 
-<!-- Модальное окно -->
+<!-- Модальное окно выбора типа ТЗ-->
 <div class="modal fade" id="ts-type-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-family: 'Mukta', sans-serif">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" style="background-color: #E5E5E5">
                 <h5 class="modal-title">Which type of technical specification do you prefer?</h5>
-                <button type="button" style="border: none; background-color: #E5E5E5" id="hide-modal">x</button>
+                <button type="button" style="border: none; background-color: #E5E5E5" id="hide-ts-modal">x</button>
             </div>
             <div class="modal-footer" style="justify-content: space-between">
-                <button type="button" class="btn" style="background-color: #FCA311">Self-written</button>
-                <a type="button" href="@Url.Action("ChooseProjectType","PersonalAccount")" class="btn" style="background-color: #FCA311">TS Redactor</a>
+                <button id="self-written-button" type="button" class="btn" style="background-color: #FCA311">Self-written</button>
+                <a href="@Url.Action("CreateProject", "ProjectManagement")" type="button" class="btn" style="background-color: #FCA311">Redactor</a>
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@
 
 <div class="container-fluid" style="font-family: 'Mukta', sans-serif">
     <div class="row">
-        <div class="d-flex flex-column p-3 text-light account-nav-bar col-md-3 col-lg-2 d-md-block">
+        <div class="d-flex flex-column p-3 text-light account-nav-bar col-md-3 col-lg-2 d-md-block" >
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link" id="my-projects" role="button" style="color: #000000;">
+                    <a href="@Url.Action("ProjectManager", "ProjectManagement")" class="nav-link" id="my-projects" role="button" style="color: #000000;">
                         <i class="fi-rr-browser"></i>
                         My projects
                     </a>
@@ -69,23 +69,34 @@
             </ul>
             <hr>
         </div>
+        
+        <main class="col-md-9 col-lg-10 px-md-4">
         @RenderBody()
+        </main>
+
     </div>
 </div>
 </body>
 
 <script>
-$(function (){
+$(document).ready(function (){
     $("#create-project").click(function (){
         $("#ts-type-modal").modal('show');
     });
 });
 
 $(document).ready(function(){
-    $("#hide-modal").click(function(){
+    $("#hide-ts-modal").click(function(){
         $("#ts-type-modal").modal('hide');
     });
 });
+
+$(document).ready(function (){
+    $("#create-project-btn").click(function (){
+        $("#ts-type-modal").modal('show');
+    });
+});
+
 
 $(document).ready(function() {
   $("#@ViewBag.CurrentPage").css('background-color', '#FCA311')

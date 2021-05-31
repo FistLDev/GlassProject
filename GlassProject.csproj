@@ -6,7 +6,7 @@
 
     <ItemGroup>
       <Folder Include="models\data_transfer_object_models" />
-      <Folder Include="services" />
+      <Folder Include="models\domain_models\Enums" />
       <Folder Include="wwwroot\fonts" />
     </ItemGroup>
 

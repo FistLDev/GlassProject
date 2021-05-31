@@ -1,0 +1,46 @@
+﻿@model GlassProject.models.view_models.CreateProject
+
+@{
+    Layout = "_PersonalAccountLayout";
+}
+
+
+<div class="row">
+    <div asp-validation-summary="ModelOnly"></div>
+    <form method="POST" asp-controller="ProjectManagement" asp-action="CreateProject"  class="col-md-4 mx-auto" id="site-project" style="padding-top: 10px">
+        <div style="margin: auto">
+            <div class="col-12">
+                <label class="form-label">Project name</label>
+                @Html.TextBoxFor(x => x.Name, new {@class = "form-control"})
+                <span asp-validation-for="Name" style="color: red"></span>
+            </div>
+            <div class="col-12">
+                <label class="form-label">Structure <span class="text-muted">(Optional)</span></label>
+                @Html.TextAreaFor(x => x.Structure, new {@class = "form-control", @rows = "3"})
+                <span asp-validation-for="Structure" style="color: red"></span>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label">Description</label>
+                @Html.TextAreaFor(x => x.Description, new {@class = "form-control", @rows = "3"})
+                <span asp-validation-for="Description" style="color: red"></span>
+            </div>
+
+            <div class="col-12">
+                <label for="lastName" class="form-label">Requirements</label>
+                @Html.TextAreaFor(x => x.Requirements, new {@class = "form-control", @rows = "3"})
+                <span asp-validation-for="Requirements" style="color: red"></span>
+            </div>
+
+            <div class="col-12">
+                <label for="lastName" class="form-label">Purpose</label>
+                @Html.TextAreaFor(x => x.Purpose, new {@class = "form-control", @rows = "3"})
+                <span asp-validation-for="Purpose" style="color: red"></span>
+            </div>
+        </div>
+
+        <hr class="my-4">
+        <input type="submit" class="w-100 btn btn-primary btn-lg" value="Create">
+        
+    </form>
+</div>
