@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace GlassProject.controllers
 {
@@ -21,19 +22,23 @@ namespace GlassProject.controllers
         {
             UserId = httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             UserManager = userManager;
-            OrderAdapter = new OrderAdapter(context);
+            Context = context;
         }
-        
+
         private IOrderAdapter OrderAdapter { get; set; }
         private UserManager<User> UserManager { get; set; }
+
+        private ApplicationDbContext Context { get; set; }
         private string UserId { get; set; }
+
 
         [Authorize]
         [Route("account")]
-        public IActionResult ProjectManager()
+        public async Task<IActionResult> ProjectManager()
         {
+            OrderAdapter = new OrderAdapter(Context);
             ProjectManager model = new ProjectManager();
-            model.Orders = OrderAdapter.GetOrdersByUser(UserId);
+            model.Orders = await OrderAdapter.GetOrdersByUser(UserId);
             ViewBag.CurrentPage = "my-projects";
             return View(model);
         }
@@ -50,9 +55,10 @@ namespace GlassProject.controllers
         [Authorize]
         [HttpPost]
         [Route("create-site-project")]
-        public IActionResult CreateProject(CreateProject model)
+        public async Task<IActionResult> CreateProject(CreateProject model)
         {
             ViewBag.CurrentPage = "create-project";
+            OrderAdapter = new OrderAdapter(Context);
 
             if (!OrderAdapter.IsOrderNameUniq(model.Name, UserId))
             {
@@ -61,7 +67,7 @@ namespace GlassProject.controllers
             
             if (ModelState.IsValid)
             {
-                OrderAdapter.CreateOrder(model.Name, UserId, "site", model.Structure, model.Purpose, model.Requirements, model.Description);
+                await OrderAdapter.CreateOrder(model.Name, UserId, "site", model.Structure, model.Purpose, model.Requirements, model.Description);
                 return RedirectToAction("ProjectManager", "ProjectManagement");
             }
             return View();

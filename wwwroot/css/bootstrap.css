@@ -4719,7 +4719,7 @@ input[type="button"].btn-block {
 .card {
   position: relative;
   display: -ms-flexbox;
-  display: flex;
+    display: inline-table;
   -ms-flex-direction: column;
   flex-direction: column;
   min-width: 0;

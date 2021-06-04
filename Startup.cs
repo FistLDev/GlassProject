@@ -28,7 +28,7 @@ namespace GlassProject
         {
             services.AddDbContext<IdentityContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("IdentityConnectionString")));
-
+            
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ApplicationConnectionString")));
 

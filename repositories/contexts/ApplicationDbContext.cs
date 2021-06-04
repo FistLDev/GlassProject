@@ -10,11 +10,10 @@ namespace GlassProject.repositories.contexts
 {
     public class ApplicationDbContext : DbContext
     {
-        private IConfiguration _configuration = new ConfigurationRoot(new List<IConfigurationProvider>());
-        private readonly StreamWriter logStream = new StreamWriter(@"D:/Temp/log.txt", true);
         public DbSet<Order> Orders { get; set; }
+        public DbSet<User> Users { get; set; }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ApplicationDbContext(DbContextOptions options)
             : base(options)
         {
             Database.EnsureCreated();
@@ -22,19 +21,7 @@ namespace GlassProject.repositories.contexts
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.LogTo(logStream.WriteLine);
         }
         
-        public override void Dispose()
-        {
-            base.Dispose();
-            logStream.Dispose();
-        }
- 
-        public override async ValueTask DisposeAsync()
-        {
-            await base.DisposeAsync();
-            await logStream.DisposeAsync();
-        }
     }
 }
